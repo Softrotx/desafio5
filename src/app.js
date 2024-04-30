@@ -8,8 +8,8 @@ const sessionMiddleware = require('./session/mongoStorage')
 const { dbName, mongoUrl} = require('./dbConfig')
 
 // Modulos de Manager
-const productos = require('./dao/DBModules/productManager')
-const carrito = require('./dao/DBModules/cartManager')
+const ProductManager = require('./dao/DBModules/productManager')
+const CartManager = require('./dao/DBModules/cartManager')
 
 // Routes
 const productsRouter = require('./routes/products.router')
@@ -51,8 +51,8 @@ const main = async () => {
 
     // Linea de comando para usar el Manager de fileStorage
 
-    // const productos = new ProductManager(`${__dirname}/assets/Productos.json`)
-    // const carrito = new CartManager(`${__dirname}/assets/Carts.json`)
+    const productos = new ProductManager(`${__dirname}/assets/Productos.json`)
+    const carrito = new CartManager(`${__dirname}/assets/Carts.json`)
     // await productos.iniciar()
     // await carrito.iniciar()
 

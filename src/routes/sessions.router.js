@@ -14,7 +14,7 @@ router.post('/login', async (req, res) => {
 
     // 2. crear nueva sesión si el usuario existe
     req.session.user = { id: user._id.toString(), email: user.email }
-    res.redirect('/')
+    res.redirect('/products')
 })
 
 router.post('/register', async (req, res) => {

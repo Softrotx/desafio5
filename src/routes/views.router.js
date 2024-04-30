@@ -46,15 +46,18 @@ router.get('/profile', async (req, res) => {
 })
 
 router.get('/products', async (req, res) => {
+    const isLoggedIn = ![null, undefined].includes(req.session.user)
 
-    const ProductManager = req.app.get("ProductManager")
-    const products = await ProductManager.getProducts(req.query)
+    const productManager = req.app.get("ProductManager")
+    const products = await productManager.getProducts(req.query)
     console.log(products)
     
     res.render('products', {
         title: 'Todos los Productos',
         useWS: false,
         useSweetAlert: true,
+        isLoggedIn,
+        isNotLoggedIn: !isLoggedIn,
         scripts: [
             
             'products.js'
