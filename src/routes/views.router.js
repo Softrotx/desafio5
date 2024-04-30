@@ -30,7 +30,7 @@ router.get('/register', (_, res) => {
 router.get('/profile', async (req, res) => {
     // TODO: agregar middleware, sólo se puede acceder si está logueado
     // TODO: mostrar los datos del usuario actualmente loggeado, en vez de los fake
-    const idFromSession = req.session.user._id
+    const idFromSession = req.session.user.id
     console.log(idFromSession)
     const user = await User.findOne({ _id: idFromSession })
 

@@ -16,7 +16,7 @@ const productsRouter = require('./routes/products.router')
 const viewsRouter = require('./routes/views.router')
 const chatRouter = require('./routes/chat.router')
 const cartsRouter = require('./routes/carts.router')
-const sessionRouter = require('./routes/session.router')
+const sessionsRouter = require('./routes/sessions.router')
 
 //WebSocket
 const { Server } = require('socket.io')
@@ -43,7 +43,7 @@ app.use('/', viewsRouter)
 app.use('/api/products', productsRouter )
 app.use('/api/carts', cartsRouter )
 app.use('/api/chat', chatRouter )
-app.use('/api/sessions', sessionRouter )
+app.use('/api/sessions', sessionsRouter )
 
 const main = async () => {
 
